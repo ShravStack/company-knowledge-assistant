@@ -1,6 +1,6 @@
 # Company Knowledge Assistant
 
-A local Retrieval-Augmented Generation (RAG) assistant for company documents. Upload `.pdf`, `.docx`, or `.txt` files and ask grounded questions, get explanations, generate review questions, and get your answers auto-graded — all backed by your own documents.
+A local Retrieval-Augmented Generation (RAG) assistant for company documents. Upload .pdf, .docx, or .txt files and ask grounded questions, get explanations, generate review questions, and get your answers auto-graded — all backed by your own documents.
 
 ## Features
 
