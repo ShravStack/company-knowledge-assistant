@@ -1,0 +1,43 @@
+# Claude Code
+CLAUDE.md
+.claude/
+
+# Secrets
+.env
+*.env
+backend/.env
+
+# Virtual environments
+venv/
+backend/venv/
+.venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+
+# Runtime data — vector store and uploaded documents
+data/chroma_db/
+data/uploads/
+
+# Model caches
+.cache/
+*.pt
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Editors / OS
+.vscode/
+.idea/
+Thumbs.db
+Desktop.ini
