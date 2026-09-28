@@ -1,68 +1,73 @@
-# Company Knowledge Assistant
+Company Knowledge Assistant
 
-A local Retrieval-Augmented Generation (RAG) assistant for company documents. Upload .pdf, .docx, or .txt files and ask grounded questions, get explanations, generate review questions, and get your answers auto-graded — all backed by your own documents.
+A local RAG (Retrieval Augmented Generation) assistant for company documents. Upload pdf, docx, or txt files and the app can answer questions, explain documents, generate review questions, and grade your answers to those questions, all based on the documents you uploaded.
 
-## Features
+Demo
 
-- **Upload & Ingest** - parses, chunks, and embeds documents into a local vector store
-- **Ask** - grounded Q&A over your documents via semantic search
-- **Explain** - plain-language explanation of an uploaded document
-- **Review** - auto-generates review/practice questions
-- **Evaluate** - grades your answers with structured feedback
-- **Document filtering** - scope any operation to one, several, or all documents
+Video coming soon.
 
-## Tech Stack
+Features
 
-Python · FastAPI · Streamlit · ChromaDB · Sentence-Transformers · Google Gemini API · Pydantic
+Upload documents and store them as embeddings in a local vector database
+Ask questions and get answers grounded in your documents
+Get plain language explanations of a document
+Generate review questions from a document
+Get your answers to review questions graded automatically
+Filter any of the above to specific documents
 
-**Skills demonstrated:** RAG pipeline design, vector search, LLM API integration, prompt engineering, REST API design, full-stack Python development.
+Tech stack
 
-```
+Python, FastAPI, Streamlit, ChromaDB, Sentence Transformers, Google Gemini API, Pydantic
 
-Runs entirely on the Gemini API + local embeddings by default — no other services required.
+Skills used: RAG pipeline design, vector search, LLM API integration, prompt engineering, REST API design, full_stack Python development.
 
-## Getting Started
+Architecture
 
-**Prerequisites:** Python 3.10+, a [Gemini API key](https://aistudio.google.com/apikey) (free tier available)
+frontend/app.py talks to backend/main.py over HTTP. The backend uses a RAGService class that handles document loading and chunking, embeddings, ChromaDB storage and search, and calls the Gemini API for generation.
 
-```powershell
+Runs entirely on the Gemini API and local embeddings by default, no other services needed.
+
+Getting started
+
+Needs Python 3.10 or higher and a Gemini API key from Google AI Studio (free tier available).
+
 git clone https://github.com/ShravStack/company-knowledge-assistant.git
 cd company-knowledge-assistant
 
 cd backend
 python -m venv venv
-.\venv\Scripts\activate
+venv\Scripts\activate
 pip install -r requirements.txt
-echo GEMINI_API_KEY=your_key_here > .env
-```
 
-### Run
+Add your key to a .env file in backend as GEMINI_API_KEY=your_key_here
 
-**Terminal 1 - Backend** (must run from inside `backend/`)
-```powershell
+Run
+
+Backend, must be run from inside the backend folder:
+
 cd backend
-.\venv\Scripts\activate
+venv\Scripts\activate
 python -m uvicorn main:app --reload
-```
-→ `http://127.0.0.1:8000` (Swagger docs at `/docs`)
 
-**Terminal 2 - Frontend**
-```powershell
+Runs at http://127.0.0.1:8000, docs at /docs
+
+Frontend, in a separate terminal:
+
 cd frontend
 python -m venv venv
-.\venv\Scripts\activate
+venv\Scripts\activate
 pip install -r requirements.txt
 python -m streamlit run app.py
-```
-→ `http://localhost:8501`
 
-## Known Limitations
+Runs at http://localhost:8501
 
-- Chunking is character-based, not sentence-aware
-- Scanned/image-only PDFs yield no text (no OCR)
-- No authentication — local/personal use only
-- Explain and Review operate on a slice of chunks, not the full document
+Known limitations
 
-## License
+Chunking is character based, not sentence aware
+Scanned or image only pdfs will not extract any text
+No authentication, meant for local or personal use only
+Explain and review only look at a slice of the document, not the full text
 
-For educational/personal portfolio use.
+License
+
+For personal and educational use.
