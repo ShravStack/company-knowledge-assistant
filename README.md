@@ -2,18 +2,14 @@
 
 A local Retrieval-Augmented Generation (RAG) assistant for company documents. Upload `.pdf`, `.docx`, or `.txt` files and ask grounded questions, get explanations, generate review questions, and get your answers auto-graded — all backed by your own documents.
 
-## Demo
-
-> 🎥 Demo video coming soon.
-
 ## Features
 
-- **Upload & Ingest** — parses, chunks, and embeds documents into a local vector store
-- **Ask** — grounded Q&A over your documents via semantic search
-- **Explain** — plain-language explanation of an uploaded document
-- **Review** — auto-generates review/practice questions
-- **Evaluate** — grades your answers with structured feedback
-- **Document filtering** — scope any operation to one, several, or all documents
+- **Upload & Ingest** - parses, chunks, and embeds documents into a local vector store
+- **Ask** - grounded Q&A over your documents via semantic search
+- **Explain** - plain-language explanation of an uploaded document
+- **Review** - auto-generates review/practice questions
+- **Evaluate** - grades your answers with structured feedback
+- **Document filtering** - scope any operation to one, several, or all documents
 
 ## Tech Stack
 
@@ -21,14 +17,6 @@ Python · FastAPI · Streamlit · ChromaDB · Sentence-Transformers · Google Ge
 
 **Skills demonstrated:** RAG pipeline design, vector search, LLM API integration, prompt engineering, REST API design, full-stack Python development.
 
-## Architecture
-
-```
-frontend/app.py ──HTTP──> backend/main.py ──> RAGService
-                                                ├─ document_loader   (parse + chunk)
-                                                ├─ embedding_service (local embeddings)
-                                                ├─ ChromaDB          (store + search)
-                                                └─ llm_service ──> gemini_service (generate)
 ```
 
 Runs entirely on the Gemini API + local embeddings by default — no other services required.
@@ -50,7 +38,7 @@ echo GEMINI_API_KEY=your_key_here > .env
 
 ### Run
 
-**Terminal 1 — Backend** (must run from inside `backend/`)
+**Terminal 1 - Backend** (must run from inside `backend/`)
 ```powershell
 cd backend
 .\venv\Scripts\activate
@@ -58,7 +46,7 @@ python -m uvicorn main:app --reload
 ```
 → `http://127.0.0.1:8000` (Swagger docs at `/docs`)
 
-**Terminal 2 — Frontend**
+**Terminal 2 - Frontend**
 ```powershell
 cd frontend
 python -m venv venv
